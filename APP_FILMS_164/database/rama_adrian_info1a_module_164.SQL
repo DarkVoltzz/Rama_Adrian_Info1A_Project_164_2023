@@ -18,106 +18,167 @@ USE rama_adrian_info1a_module_164;
 -- --------------------------------------------------------
 
 -- --------------------------------------------------------
--- Hôte :                        127.0.0.1
--- Version du serveur:           5.1.72-community - MySQL Community Server (GPL)
--- SE du serveur:                Win32
--- HeidiSQL Version:             10.2.0.5599
+-- Host:                         127.0.0.1
+-- Server version:               8.0.30 - MySQL Community Server - GPL
+-- Server OS:                    Win64
+-- HeidiSQL Version:             12.1.0.6537
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Listage de la structure de la base pour rama_adrian_info1a_module_164
+-- Dumping database structure for rama_adrian_info1a_module_164
 DROP DATABASE IF EXISTS `rama_adrian_info1a_module_164`;
-CREATE DATABASE IF NOT EXISTS `rama_adrian_info1a_module_164` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE IF NOT EXISTS `rama_adrian_info1a_module_164` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `rama_adrian_info1a_module_164`;
 
--- Listage de la structure de la table rama_adrian_info1a_module_164. t_adresse
+-- Dumping structure for table rama_adrian_info1a_module_164.t_adresse
 DROP TABLE IF EXISTS `t_adresse`;
 CREATE TABLE IF NOT EXISTS `t_adresse` (
-  `id_adresse` int(11) NOT NULL AUTO_INCREMENT,
+  `id_adresse` int NOT NULL AUTO_INCREMENT,
   `nom_rue` varchar(50) DEFAULT NULL,
   `npa` varchar(10) DEFAULT NULL,
   `ville` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_adresse`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table rama_adrian_info1a_module_164.t_adresse : 1 rows
-/*!40000 ALTER TABLE `t_adresse` DISABLE KEYS */;
+-- Dumping data for table rama_adrian_info1a_module_164.t_adresse: ~0 rows (approximately)
 INSERT INTO `t_adresse` (`id_adresse`, `nom_rue`, `npa`, `ville`) VALUES
 	(1, 'Chemin des Lieugex 35', '1860', 'Aigle');
-/*!40000 ALTER TABLE `t_adresse` ENABLE KEYS */;
 
--- Listage de la structure de la table rama_adrian_info1a_module_164. t_cours
+-- Dumping structure for table rama_adrian_info1a_module_164.t_cours
 DROP TABLE IF EXISTS `t_cours`;
 CREATE TABLE IF NOT EXISTS `t_cours` (
-  `id_cours` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cours` int NOT NULL AUTO_INCREMENT,
   `nom_cours` varchar(50) DEFAULT NULL,
-  `document` blob,
+  `document` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_cours`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table rama_adrian_info1a_module_164.t_cours : 1 rows
-/*!40000 ALTER TABLE `t_cours` DISABLE KEYS */;
+-- Dumping data for table rama_adrian_info1a_module_164.t_cours: ~0 rows (approximately)
 INSERT INTO `t_cours` (`id_cours`, `nom_cours`, `document`) VALUES
-	(1, 'Informatique', _binary 0x696E666F726D617469717565);
-/*!40000 ALTER TABLE `t_cours` ENABLE KEYS */;
+	(1, 'Informatique', 'Ici se trouve les informations pour l\'informatique'),
+	(2, 'tfgdydfgbydfxcb', 'fsdevdscxxdcys v'),
+	(3, 'math', 'Documents pour les maths'),
+	(4, 'français', 'Documents pour français'),
+	(5, 'test', 'Test'),
+	(6, 'fghfgh', 'fghfgh');
 
--- Listage de la structure de la table rama_adrian_info1a_module_164. t_eleve
+-- Dumping structure for table rama_adrian_info1a_module_164.t_eleve
 DROP TABLE IF EXISTS `t_eleve`;
 CREATE TABLE IF NOT EXISTS `t_eleve` (
-  `id_eleve` int(11) NOT NULL AUTO_INCREMENT,
+  `id_eleve` int NOT NULL AUTO_INCREMENT,
   `nom_pers` varchar(50) DEFAULT NULL,
   `prenom_pers` varchar(50) DEFAULT NULL,
   `date_naiss` date DEFAULT NULL,
-  `cours` int(11) DEFAULT NULL,
-  `adresse` int(11) DEFAULT NULL,
-  `mail` int(11) DEFAULT NULL,
-  `pays` int(11) DEFAULT NULL,
+  `cours` int NOT NULL,
+  `adresse` int NOT NULL,
+  `mail` int NOT NULL,
+  `pays` int NOT NULL,
   PRIMARY KEY (`id_eleve`),
   KEY `cours` (`cours`),
   KEY `adresse` (`adresse`),
   KEY `mail` (`mail`),
   KEY `pays` (`pays`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table rama_adrian_info1a_module_164.t_eleve : 1 rows
-/*!40000 ALTER TABLE `t_eleve` DISABLE KEYS */;
+-- Dumping data for table rama_adrian_info1a_module_164.t_eleve: ~0 rows (approximately)
 INSERT INTO `t_eleve` (`id_eleve`, `nom_pers`, `prenom_pers`, `date_naiss`, `cours`, `adresse`, `mail`, `pays`) VALUES
 	(1, 'Rama', 'Adrian', '2006-11-15', 1, 1, 1, 1);
-/*!40000 ALTER TABLE `t_eleve` ENABLE KEYS */;
 
--- Listage de la structure de la table rama_adrian_info1a_module_164. t_mail
+-- Dumping structure for table rama_adrian_info1a_module_164.t_eleve_avoir_adresse
+DROP TABLE IF EXISTS `t_eleve_avoir_adresse`;
+CREATE TABLE IF NOT EXISTS `t_eleve_avoir_adresse` (
+  `id_eleve_avoir_adresse` int NOT NULL AUTO_INCREMENT,
+  `fk_adresse` int NOT NULL,
+  `fk_eleve` int NOT NULL,
+  PRIMARY KEY (`id_eleve_avoir_adresse`),
+  KEY `fk_adresse` (`fk_adresse`),
+  KEY `fk_eleve` (`fk_eleve`),
+  CONSTRAINT `FK_el_avoir_Adresse` FOREIGN KEY (`fk_adresse`) REFERENCES `t_adresse` (`id_adresse`),
+  CONSTRAINT `FK_Eleve_avoir_addr` FOREIGN KEY (`fk_eleve`) REFERENCES `t_eleve` (`id_eleve`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table rama_adrian_info1a_module_164.t_eleve_avoir_adresse: ~0 rows (approximately)
+
+-- Dumping structure for table rama_adrian_info1a_module_164.t_eleve_avoir_cours
+DROP TABLE IF EXISTS `t_eleve_avoir_cours`;
+CREATE TABLE IF NOT EXISTS `t_eleve_avoir_cours` (
+  `id_eleve_avoir_cours` int NOT NULL AUTO_INCREMENT,
+  `fk_cours` int NOT NULL,
+  `fk_eleve` int NOT NULL,
+  PRIMARY KEY (`id_eleve_avoir_cours`),
+  KEY `fk_cours` (`fk_cours`),
+  KEY `fk_eleve` (`fk_eleve`),
+  CONSTRAINT `FK_el_avoir_Cours` FOREIGN KEY (`fk_cours`) REFERENCES `t_cours` (`id_cours`),
+  CONSTRAINT `FK_Eleve_avoir_cour` FOREIGN KEY (`fk_eleve`) REFERENCES `t_eleve` (`id_eleve`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table rama_adrian_info1a_module_164.t_eleve_avoir_cours: ~0 rows (approximately)
+
+-- Dumping structure for table rama_adrian_info1a_module_164.t_eleve_avoir_mail
+DROP TABLE IF EXISTS `t_eleve_avoir_mail`;
+CREATE TABLE IF NOT EXISTS `t_eleve_avoir_mail` (
+  `id_eleve_avoir_mail` int NOT NULL AUTO_INCREMENT,
+  `fk_mail` int NOT NULL,
+  `fk_eleve` int NOT NULL,
+  PRIMARY KEY (`id_eleve_avoir_mail`),
+  KEY `fk_mail` (`fk_mail`),
+  KEY `fk_eleve` (`fk_eleve`),
+  CONSTRAINT `FK_el_avoir_Mail` FOREIGN KEY (`fk_mail`) REFERENCES `t_mail` (`id_mail`),
+  CONSTRAINT `FK_Eleve_avoir_email` FOREIGN KEY (`fk_eleve`) REFERENCES `t_eleve` (`id_eleve`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table rama_adrian_info1a_module_164.t_eleve_avoir_mail: ~0 rows (approximately)
+
+-- Dumping structure for table rama_adrian_info1a_module_164.t_eleve_avoir_pays
+DROP TABLE IF EXISTS `t_eleve_avoir_pays`;
+CREATE TABLE IF NOT EXISTS `t_eleve_avoir_pays` (
+  `id_eleve_avoir_pays` int NOT NULL AUTO_INCREMENT,
+  `fk_pays` int NOT NULL,
+  `fk_eleve` int NOT NULL,
+  PRIMARY KEY (`id_eleve_avoir_pays`),
+  KEY `fk_pays` (`fk_pays`),
+  KEY `fk_eleve` (`fk_eleve`),
+  CONSTRAINT `FK_el_avoir_Pays` FOREIGN KEY (`fk_pays`) REFERENCES `t_pays` (`id_pays`),
+  CONSTRAINT `FK_Eleve_avoir_pay` FOREIGN KEY (`fk_eleve`) REFERENCES `t_eleve` (`id_eleve`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table rama_adrian_info1a_module_164.t_eleve_avoir_pays: ~0 rows (approximately)
+
+-- Dumping structure for table rama_adrian_info1a_module_164.t_mail
 DROP TABLE IF EXISTS `t_mail`;
 CREATE TABLE IF NOT EXISTS `t_mail` (
-  `id_mail` int(11) NOT NULL AUTO_INCREMENT,
+  `id_mail` int NOT NULL AUTO_INCREMENT,
   `mail` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_mail`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table rama_adrian_info1a_module_164.t_mail : 0 rows
-/*!40000 ALTER TABLE `t_mail` DISABLE KEYS */;
+-- Dumping data for table rama_adrian_info1a_module_164.t_mail: ~0 rows (approximately)
 INSERT INTO `t_mail` (`id_mail`, `mail`) VALUES
 	(1, 'adrianrama611@gmail.com');
-/*!40000 ALTER TABLE `t_mail` ENABLE KEYS */;
 
--- Listage de la structure de la table rama_adrian_info1a_module_164. t_pays
+-- Dumping structure for table rama_adrian_info1a_module_164.t_pays
 DROP TABLE IF EXISTS `t_pays`;
 CREATE TABLE IF NOT EXISTS `t_pays` (
-  `id_pays` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pays` int NOT NULL AUTO_INCREMENT,
   `pays` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_pays`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table rama_adrian_info1a_module_164.t_pays : 1 rows
-/*!40000 ALTER TABLE `t_pays` DISABLE KEYS */;
+-- Dumping data for table rama_adrian_info1a_module_164.t_pays: ~0 rows (approximately)
 INSERT INTO `t_pays` (`id_pays`, `pays`) VALUES
 	(1, 'Suisse');
-/*!40000 ALTER TABLE `t_pays` ENABLE KEYS */;
 
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
