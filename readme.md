@@ -49,3 +49,5 @@ Download PyCharm: Python IDE for Professional Developers by JetBrains
 2) Faites pareil avec le fichier 2_test_connection_bd.py. Cela testera la connectivité avec le serveur.
 3) Pour finir lancer le fichier run_mon_app.py se trouvant dans le dossier ../APP_FILMS_164/database
 
+
+
